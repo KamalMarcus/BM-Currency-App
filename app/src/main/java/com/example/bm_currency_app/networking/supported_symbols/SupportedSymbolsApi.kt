@@ -1,8 +1,10 @@
 package com.example.bm_currency_app.networking.supported_symbols
 
 import android.util.Log
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 /**
  * The general network API for managing location info.
@@ -31,7 +33,7 @@ class SupportedSymbolsApi constructor(
 				 */
 			}
 			emit(response)
-		}
+		}.flowOn(Dispatchers.IO)
 
 	companion object {
 		/**

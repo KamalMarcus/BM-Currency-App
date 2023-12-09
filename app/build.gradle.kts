@@ -2,6 +2,8 @@ plugins {
 	id("com.android.application")
 	id("org.jetbrains.kotlin.android")
 	kotlin("plugin.serialization")
+	id("org.jetbrains.kotlin.plugin.parcelize")
+	id("com.google.devtools.ksp")
 }
 
 android {
@@ -36,6 +38,9 @@ android {
 	}
 	kotlinOptions {
 		jvmTarget = "1.8"
+		freeCompilerArgs = listOf(
+			"-opt-in=androidx.compose.material3.ExperimentalMaterial3Api") +
+				freeCompilerArgs
 	}
 	buildFeatures {
 		compose = true
@@ -51,6 +56,7 @@ android {
 }
 
 dependencies {
+	val composeVersion = "1.5.4"
 
 	implementation("androidx.core:core-ktx:1.12.0")
 	implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -67,6 +73,7 @@ dependencies {
 	androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 	debugImplementation("androidx.compose.ui:ui-tooling")
 	debugImplementation("androidx.compose.ui:ui-test-manifest")
+	implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
 	//////////////////////
 	// Kotlin libraries //

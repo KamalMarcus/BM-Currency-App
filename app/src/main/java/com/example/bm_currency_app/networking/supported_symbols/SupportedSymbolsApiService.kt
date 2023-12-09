@@ -1,6 +1,7 @@
 package com.example.bm_currency_app.networking.supported_symbols
 
 import com.example.bm_currency_app.networking.ApiResponseFactory
+import com.example.bm_currency_app.networking.FixerApiFactory
 import com.example.bm_currency_app.networking.FixerApiService
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -22,7 +23,7 @@ interface SupportedSymbolsApiService : FixerApiService {
 	 */
 	@GET("symbols")
 	suspend fun getSupportedSymbols(
-		@Query("access_key") accessKey: String = "391c580bd1362f8c127263fa83774f03",
+		@Query("access_key") accessKey: String = FixerApiFactory.API_ACCESS_TOKEN, //Todo move this to local.properties file
 		@Tag apiResponseFactory: ApiResponseFactory<GetSupportedSymbolsResponse> =
 			GetSupportedSymbolsResponseFactory
 	): GetSupportedSymbolsResponse

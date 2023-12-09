@@ -6,7 +6,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 /**
@@ -72,4 +71,8 @@ interface FixerApiFactory<ApiService : FixerApiService> : RetrofitApiFactory {
 				)
 			)
 			.build()
+
+	companion object {
+		val API_ACCESS_TOKEN = "391c580bd1362f8c127263fa83774f03"
+	}
 }
