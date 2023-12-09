@@ -1,4 +1,4 @@
-package com.example.bm_currency_app
+package com.example.bm_currency_app.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
